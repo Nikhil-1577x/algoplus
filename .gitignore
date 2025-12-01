@@ -22,4 +22,27 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment variables and secrets
 .env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.*.local
+
+# Allow .env.example files (templates should be committed)
+!.env.example
+!**/.env.example
+
+# Security and credentials
+secrets/
+*.pem
+*.key
+*.cert
+*.crt
+config/secrets.js
+config/credentials.json
+
+# OS files
+Thumbs.db

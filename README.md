@@ -100,16 +100,48 @@ cd ..
 
 ### 3. Environment Variables
 
+> [!IMPORTANT]
+> **Never commit your `.env` files to Git!** They contain sensitive API keys and credentials.
+
+Create a `.env` file in the root directory:
+
 **Frontend `.env`:**
 ```env
 VITE_OPENAI_API_KEY=your_openai_api_key_here
+MONGODB_URI=your_mongodb_connection_string_here
 ```
 
 **Backend `server/.env`:**
 ```env
 PORT=5000
 MONGODB_URI=your_mongodb_connection_string_here
+NODE_ENV=development
 ```
+
+#### 🔐 Getting Your API Keys
+
+**MongoDB Atlas:**
+1. Sign up at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+2. Create a free cluster
+3. Go to Database Access → Add Database User
+4. Go to Network Access → Add IP Address (add `0.0.0.0/0` for development)
+5. Click "Connect" → "Connect your application" → Copy the connection string
+6. Replace `<password>` with your database user password
+
+**OpenAI API:**
+1. Sign up at [OpenAI Platform](https://platform.openai.com/)
+2. Go to [API Keys](https://platform.openai.com/api-keys)
+3. Click "Create new secret key"
+4. Copy the key (you won't be able to see it again!)
+
+> [!WARNING]
+> **Security Best Practices:**
+> - Never share your API keys publicly
+> - Rotate credentials if accidentally exposed
+> - Use environment-specific keys for dev/staging/production
+> - Enable IP whitelisting on MongoDB Atlas
+> - Set usage limits on OpenAI API keys
+
 
 ### 4. Run the Application
 
